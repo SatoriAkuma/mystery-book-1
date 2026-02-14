@@ -1183,7 +1183,7 @@
         const randomStoryBtn = document.getElementById("randomStoryBtn");
         const storyMenuGrid = document.getElementById("storyMenuGrid");
 
-        const SECRET = "YANN";
+        const SECRET = "WOODMILLAR";
         let isUnlocked = localStorage.getItem("bookUnlocked") === "true";
         let openCount = parseInt(localStorage.getItem("openCount") || "0");
 
@@ -1221,56 +1221,6 @@
           },
           {
             id: 2,
-            title: "🌾 Soie – de Alessandro Baricco",
-            description:
-              "Le voyage d'Hervé Joncour au Japon et l'amour silencieux d'Hélène, une histoire sur le désir de l'ailleurs et la beauté de l'amour réel.",
-            paragraphs: [
-              `<span class="lettrine-love">I</span>l s'appelait Hervé Joncour. Ce n'était ni un homme courageux, ni un homme tourmenté. Il était simplement calme.`,
-              "Il vivait dans un petit village du sud de la France, un endroit où les saisons passaient doucement, où les gens parlaient peu, et où la soie faisait vivre les maisons.",
-              "Il était marié à Hélène. Hélène avait une voix douce. Une présence discrète. Elle aimait son mari sans bruit.",
-              "Ils n'avaient pas d'enfants, mais ils avaient une paix tranquille, presque fragile.",
-              `<span class="lettrine-love">C</span>haque année, Hervé partait loin acheter des œufs de vers à soie. C'était un voyage long, mais ordinaire. Jusqu'au jour où la maladie frappa l'Europe. Les vers mouraient. La soie disparaissait. Alors on lui demanda d'aller plus loin. Beaucoup plus loin.`,
-              `<span class="lettrine-love">I</span>l traversa l'Europe. Puis la Russie. Puis la Sibérie. Puis la mer. Des semaines de train. Des plaines blanches infinies. Des silences. Il arriva enfin au Japon, un pays encore presque fermé au monde.`,
-              "Là-bas, dans un village isolé, il rencontra un homme puissant et silencieux : Hara Kei. Et près de lui… Il la vit.",
-              `<span class="lettrine-love">E</span>lle ne parlait pas. Elle était assise près de Hara Kei comme une ombre paisible. Son visage était lisse. Ses gestes rares. Mais ses yeux… Ses yeux n'étaient pas comme ceux des autres. Ils étaient clairs. Profonds. Presque étrangers.`,
-              "Elle regarda Hervé. Longtemps. Sans sourire. Sans émotion visible. Et pourtant… quelque chose passa entre eux. Pas un mot. Pas un geste. Seulement un regard.",
-              `<span class="lettrine-love">H</span>ervé rentra en France. Il retrouva Hélène. Sa maison. Le jardin. Tout était à sa place. Mais quelque chose en lui était resté au Japon. Il pensait à ce regard. Pas comme à une passion. Plutôt comme à une question restée sans réponse.`,
-              "L'année suivante, il repartit. Et il la revit. Toujours silencieuse. Toujours inaccessible.",
-              `<span class="lettrine-love">U</span>n jour, en quittant la maison de Hara Kei, il sentit quelque chose glissé dans sa main. Un petit papier. Il ne l'ouvrit qu'en France. Il le fit traduire. Les mots disaient, simplement, une invitation à revenir. Une promesse. Un appel. Ces mots l'embrasèrent plus que mille gestes.`,
-              `<span class="lettrine-love">I</span>l repartit encore. Mais le Japon changeait. La guerre grondait. Le village était vide. La maison détruite. Hara Kei avait disparu. Elle aussi. Comme si elle n'avait jamais existé. Hervé rentra une dernière fois. Et il ne repartit plus.`,
-              `<span class="lettrine-love">L</span>es années passèrent. Hélène vieillissait doucement. Toujours présente. Toujours douce. Hervé ne parlait jamais du Japon. Il gardait ce souvenir comme une musique lointaine.`,
-              "Puis un jour, Hélène mourut. Et après sa mort, Hervé découvrit quelque chose qui bouleversa tout. La lettre japonaise. Ce n'était pas elle qui l'avait écrite. C'était Hélène.",
-              `<span class="lettrine-love">E</span>lle avait compris. Elle avait vu ce silence en lui. Elle avait compris qu'il cherchait quelque chose d'indéfinissable. Alors elle lui avait offert un rêve. Elle lui avait donné l'illusion d'un amour mystérieux, pour combler le vide qu'il ne savait pas nommer. Elle l'avait aimé d'un amour si profond qu'elle avait accepté d'être invisible.`,
-              `<span class="lettrine-love">C</span>e n'est pas une histoire de passion. C'est une histoire sur le désir de l'ailleurs, le mystère qui nous attire, l'illusion que l'inaccessible est plus intense, et la beauté silencieuse de l'amour réel.`,
-              "La femme japonaise était un mirage. Une projection. Un vertige. Hélène était la vérité. Mais la vérité ne brille pas toujours comme le rêve.",
-            ],
-          },
-          {
-            id: 3,
-            title: "🌿 Le Prophète – de Kahlil Gibran",
-            description:
-              "Les paroles du Prophète sur l'amour véritable : une invitation à aimer sans posséder, à laisser un espace entre les cœurs.",
-            paragraphs: [
-              `<span class="lettrine-love">L</span>a mer était calme ce matin-là. Les voiles d'un navire flottaient comme des rêves au-dessus de l'eau argentée. La ville entière s'était rassemblée sur le port, silencieuse.`,
-              "Ils attendaient l'homme qui allait partir, celui qu'ils appelaient le Prophète. On disait qu'il savait des choses sur la vie, sur le cœur, sur les secrets que chacun porte au fond de soi.",
-              `<span class="lettrine-love">A</span>vant de monter sur le navire, on lui demanda de parler une dernière fois. Et la question vint naturellement, douce et insistante : « Parle-nous de l'amour. »`,
-              "Le Prophète regarda la foule, et ses yeux semblaient regarder plus loin que la mer, plus loin que le ciel.",
-              `<span class="lettrine-love">« Q</span>uand l'amour vous appelle, suivez-le, même si ses chemins sont abrupts et sombres. L'amour vous élève et vous fait briller, mais il peut aussi vous briser et vous mettre à nu. Il n'est pas là pour vous protéger, mais pour vous transformer.`,
-              "L'amour ne possède pas et ne veut pas être possédé. Deux cœurs ne doivent pas se fondre au point de perdre leur souffle et leur liberté. Laissez un espace entre vous, pour que les vents du ciel puissent danser entre vous.",
-              "Aimez, mais ne faites pas de l'amour une chaîne. Remplissez la coupe de l'autre, mais ne buvez pas dans la même coupe. Soyez ensemble, mais gardez votre propre lumière.",
-              "L'amour donne, mais il exige. Il est la douceur et la douleur, la joie et les larmes. Il est le feu qui forge votre âme, et parfois il vous consume pour que vous renaissiez plus vaste, plus profond.",
-              "Si vous aimez pour ne recevoir que paix ou plaisir, vous ne saurez jamais ce qu'est l'amour véritable. Car l'amour véritable est une force qui vous traverse, qui vous change et vous élève, même lorsque vous souffrez. »",
-              `<span class="lettrine-love">L</span>e Prophète fit une pause. Il regarda chaque visage dans la foule. Il savait que beaucoup pleuraient silencieusement, que certains tremblaient d'émotion, et que d'autres n'avaient jamais ressenti ce vertige qu'est l'amour vrai.`,
-              "Puis il reprit, comme une caresse :",
-              "« L'amour est votre lumière et votre ombre. Il vous rend vulnérable, et c'est dans cette vulnérabilité que vous trouvez votre force. Il ne se mesure pas, ne se possède pas, ne s'attrape pas. Il est libre, et il rend libre celui qui le reçoit et celui qui le donne. »",
-              `<span class="lettrine-love">L</span>a foule resta silencieuse. Le vent s'était levé, jouant avec les voiles du navire. Et le Prophète monta sur le pont, prêt à partir vers d'autres rivages.`,
-              "Mais chacun gardait au cœur ce qu'il venait de dire. Ce simple murmure : l'amour est à la fois doux et cruel, fragile et immense, impossible à posséder et pourtant essentiel à vivre.",
-              `<span class="lettrine-love">A</span>lors que le navire s'éloignait, la mer reflétait les visages levés vers le ciel. Les habitants comprirent que l'amour n'était pas seulement un sentiment : c'était une vérité, un souffle, une lumière invisible qui traverse la vie entière.`,
-              "Et cette lumière continue de briller, même lorsque l'on croit que tout est perdu.",
-            ],
-          },
-          {
-            id: 4,
             title: "🦊 Le Petit Prince et le renard",
             description:
               "La rencontre inoubliable du Petit Prince et du renard, et l'apprentissage de l'apprivoisement et des liens du cœur.",
@@ -1306,6 +1256,56 @@
               "Et encore : — « Tu deviens responsable pour toujours de ce que tu as apprivoisé. Tu es responsable de ta rose… »",
               "Le Petit Prince répéta : — « Je suis responsable de ma rose… »",
               "Et il reprit sa route, comprenant désormais que l'amour crée des liens invisibles mais éternels.",
+            ],
+          },
+          {
+            id: 3,
+            title: "🌾 Soie – de Alessandro Baricco",
+            description:
+              "Le voyage d'Hervé Joncour au Japon et l'amour silencieux d'Hélène, une histoire sur le désir de l'ailleurs et la beauté de l'amour réel.",
+            paragraphs: [
+              `<span class="lettrine-love">I</span>l s'appelait Hervé Joncour. Ce n'était ni un homme courageux, ni un homme tourmenté. Il était simplement calme.`,
+              "Il vivait dans un petit village du sud de la France, un endroit où les saisons passaient doucement, où les gens parlaient peu, et où la soie faisait vivre les maisons.",
+              "Il était marié à Hélène. Hélène avait une voix douce. Une présence discrète. Elle aimait son mari sans bruit.",
+              "Ils n'avaient pas d'enfants, mais ils avaient une paix tranquille, presque fragile.",
+              `<span class="lettrine-love">C</span>haque année, Hervé partait loin acheter des œufs de vers à soie. C'était un voyage long, mais ordinaire. Jusqu'au jour où la maladie frappa l'Europe. Les vers mouraient. La soie disparaissait. Alors on lui demanda d'aller plus loin. Beaucoup plus loin.`,
+              `<span class="lettrine-love">I</span>l traversa l'Europe. Puis la Russie. Puis la Sibérie. Puis la mer. Des semaines de train. Des plaines blanches infinies. Des silences. Il arriva enfin au Japon, un pays encore presque fermé au monde.`,
+              "Là-bas, dans un village isolé, il rencontra un homme puissant et silencieux : Hara Kei. Et près de lui… Il la vit.",
+              `<span class="lettrine-love">E</span>lle ne parlait pas. Elle était assise près de Hara Kei comme une ombre paisible. Son visage était lisse. Ses gestes rares. Mais ses yeux… Ses yeux n'étaient pas comme ceux des autres. Ils étaient clairs. Profonds. Presque étrangers.`,
+              "Elle regarda Hervé. Longtemps. Sans sourire. Sans émotion visible. Et pourtant… quelque chose passa entre eux. Pas un mot. Pas un geste. Seulement un regard.",
+              `<span class="lettrine-love">H</span>ervé rentra en France. Il retrouva Hélène. Sa maison. Le jardin. Tout était à sa place. Mais quelque chose en lui était resté au Japon. Il pensait à ce regard. Pas comme à une passion. Plutôt comme à une question restée sans réponse.`,
+              "L'année suivante, il repartit. Et il la revit. Toujours silencieuse. Toujours inaccessible.",
+              `<span class="lettrine-love">U</span>n jour, en quittant la maison de Hara Kei, il sentit quelque chose glissé dans sa main. Un petit papier. Il ne l'ouvrit qu'en France. Il le fit traduire. Les mots disaient, simplement, une invitation à revenir. Une promesse. Un appel. Ces mots l'embrasèrent plus que mille gestes.`,
+              `<span class="lettrine-love">I</span>l repartit encore. Mais le Japon changeait. La guerre grondait. Le village était vide. La maison détruite. Hara Kei avait disparu. Elle aussi. Comme si elle n'avait jamais existé. Hervé rentra une dernière fois. Et il ne repartit plus.`,
+              `<span class="lettrine-love">L</span>es années passèrent. Hélène vieillissait doucement. Toujours présente. Toujours douce. Hervé ne parlait jamais du Japon. Il gardait ce souvenir comme une musique lointaine.`,
+              "Puis un jour, Hélène mourut. Et après sa mort, Hervé découvrit quelque chose qui bouleversa tout. La lettre japonaise. Ce n'était pas elle qui l'avait écrite. C'était Hélène.",
+              `<span class="lettrine-love">E</span>lle avait compris. Elle avait vu ce silence en lui. Elle avait compris qu'il cherchait quelque chose d'indéfinissable. Alors elle lui avait offert un rêve. Elle lui avait donné l'illusion d'un amour mystérieux, pour combler le vide qu'il ne savait pas nommer. Elle l'avait aimé d'un amour si profond qu'elle avait accepté d'être invisible.`,
+              `<span class="lettrine-love">C</span>e n'est pas une histoire de passion. C'est une histoire sur le désir de l'ailleurs, le mystère qui nous attire, l'illusion que l'inaccessible est plus intense, et la beauté silencieuse de l'amour réel.`,
+              "La femme japonaise était un mirage. Une projection. Un vertige. Hélène était la vérité. Mais la vérité ne brille pas toujours comme le rêve.",
+            ],
+          },
+          {
+            id: 4,
+            title: "🌿 Le Prophète – de Kahlil Gibran",
+            description:
+              "Les paroles du Prophète sur l'amour véritable : une invitation à aimer sans posséder, à laisser un espace entre les cœurs.",
+            paragraphs: [
+              `<span class="lettrine-love">L</span>a mer était calme ce matin-là. Les voiles d'un navire flottaient comme des rêves au-dessus de l'eau argentée. La ville entière s'était rassemblée sur le port, silencieuse.`,
+              "Ils attendaient l'homme qui allait partir, celui qu'ils appelaient le Prophète. On disait qu'il savait des choses sur la vie, sur le cœur, sur les secrets que chacun porte au fond de soi.",
+              `<span class="lettrine-love">A</span>vant de monter sur le navire, on lui demanda de parler une dernière fois. Et la question vint naturellement, douce et insistante : « Parle-nous de l'amour. »`,
+              "Le Prophète regarda la foule, et ses yeux semblaient regarder plus loin que la mer, plus loin que le ciel.",
+              `<span class="lettrine-love">« Q</span>uand l'amour vous appelle, suivez-le, même si ses chemins sont abrupts et sombres. L'amour vous élève et vous fait briller, mais il peut aussi vous briser et vous mettre à nu. Il n'est pas là pour vous protéger, mais pour vous transformer.`,
+              "L'amour ne possède pas et ne veut pas être possédé. Deux cœurs ne doivent pas se fondre au point de perdre leur souffle et leur liberté. Laissez un espace entre vous, pour que les vents du ciel puissent danser entre vous.",
+              "Aimez, mais ne faites pas de l'amour une chaîne. Remplissez la coupe de l'autre, mais ne buvez pas dans la même coupe. Soyez ensemble, mais gardez votre propre lumière.",
+              "L'amour donne, mais il exige. Il est la douceur et la douleur, la joie et les larmes. Il est le feu qui forge votre âme, et parfois il vous consume pour que vous renaissiez plus vaste, plus profond.",
+              "Si vous aimez pour ne recevoir que paix ou plaisir, vous ne saurez jamais ce qu'est l'amour véritable. Car l'amour véritable est une force qui vous traverse, qui vous change et vous élève, même lorsque vous souffrez. »",
+              `<span class="lettrine-love">L</span>e Prophète fit une pause. Il regarda chaque visage dans la foule. Il savait que beaucoup pleuraient silencieusement, que certains tremblaient d'émotion, et que d'autres n'avaient jamais ressenti ce vertige qu'est l'amour vrai.`,
+              "Puis il reprit, comme une caresse :",
+              "« L'amour est votre lumière et votre ombre. Il vous rend vulnérable, et c'est dans cette vulnérabilité que vous trouvez votre force. Il ne se mesure pas, ne se possède pas, ne s'attrape pas. Il est libre, et il rend libre celui qui le reçoit et celui qui le donne. »",
+              `<span class="lettrine-love">L</span>a foule resta silencieuse. Le vent s'était levé, jouant avec les voiles du navire. Et le Prophète monta sur le pont, prêt à partir vers d'autres rivages.`,
+              "Mais chacun gardait au cœur ce qu'il venait de dire. Ce simple murmure : l'amour est à la fois doux et cruel, fragile et immense, impossible à posséder et pourtant essentiel à vivre.",
+              `<span class="lettrine-love">A</span>lors que le navire s'éloignait, la mer reflétait les visages levés vers le ciel. Les habitants comprirent que l'amour n'était pas seulement un sentiment : c'était une vérité, un souffle, une lumière invisible qui traverse la vie entière.`,
+              "Et cette lumière continue de briller, même lorsque l'on croit que tout est perdu.",
             ],
           },
           {
