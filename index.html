@@ -1,0 +1,1668 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes"
+    />
+    <title>Livre mystère</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #2b1b15;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Georgia", "Times New Roman", serif;
+        padding: 1rem;
+        padding-bottom: 3rem;
+        padding-top: 3rem;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .rose-decoration {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .rose {
+        position: absolute;
+        font-size: 1.5rem;
+        opacity: 0.3;
+        animation: floatRose 10s infinite ease-in-out;
+        filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.2));
+        z-index: 1;
+      }
+
+      .rose-1 {
+        top: 5%;
+        left: 2%;
+        font-size: 2rem;
+        animation-delay: 0s;
+        color: #d46b4b;
+      }
+      .rose-2 {
+        top: 15%;
+        right: 3%;
+        font-size: 2.2rem;
+        animation-delay: 2s;
+        color: #b1432b;
+      }
+      .rose-3 {
+        bottom: 10%;
+        left: 5%;
+        font-size: 1.8rem;
+        animation-delay: 4s;
+        color: #c45a3a;
+      }
+      .rose-4 {
+        bottom: 20%;
+        right: 8%;
+        font-size: 2.5rem;
+        animation-delay: 1s;
+        color: #d95f44;
+      }
+      .rose-5 {
+        top: 40%;
+        left: 10%;
+        font-size: 1.6rem;
+        animation-delay: 3s;
+        color: #b1432b;
+      }
+      .rose-6 {
+        top: 60%;
+        right: 15%;
+        font-size: 2rem;
+        animation-delay: 5s;
+        color: #c45a3a;
+      }
+
+      @keyframes floatRose {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+      }
+
+      .petal {
+        position: fixed;
+        top: -10%;
+        font-size: 1.2rem;
+        opacity: 0.2;
+        animation: fall linear infinite;
+        z-index: 0;
+        pointer-events: none;
+        color: #c45a3a;
+      }
+
+      .petal-1 {
+        left: 10%;
+        animation-duration: 8s;
+        animation-delay: 0s;
+      }
+      .petal-2 {
+        left: 30%;
+        animation-duration: 10s;
+        animation-delay: 2s;
+      }
+      .petal-3 {
+        left: 50%;
+        animation-duration: 7s;
+        animation-delay: 4s;
+      }
+      .petal-4 {
+        left: 70%;
+        animation-duration: 12s;
+        animation-delay: 1s;
+      }
+      .petal-5 {
+        left: 90%;
+        animation-duration: 9s;
+        animation-delay: 3s;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0.2;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .cover-love {
+        width: min(520px, 95vw);
+        background: #2e1d16;
+        background-image:
+          repeating-radial-gradient(
+            circle at 30% 40%,
+            #5a3e31 1px,
+            #3a281f 2px,
+            transparent 4px
+          ),
+          linear-gradient(145deg, #3e2a20, #2b1b13);
+        border-radius: clamp(16px, 4vw, 24px) clamp(8px, 2vw, 12px)
+          clamp(8px, 2vw, 12px) clamp(16px, 4vw, 24px);
+        box-shadow:
+          0 30px 45px -15px #0f0907,
+          0 0 0 max(3px, 0.4vw) #a17b60,
+          0 0 0 max(8px, 1.2vw) #1a100b,
+          inset 0 0 30px #1a100b,
+          inset 0 0 0 3px #e2c5ad;
+        padding: clamp(1.5rem, 4vw, 2.2rem) clamp(1.2rem, 3vw, 2rem);
+        position: relative;
+        border: 2px solid #a17b60;
+        aspect-ratio: 2 / 3;
+        display: flex;
+        flex-direction: column;
+        z-index: 10;
+      }
+
+      .ornament-corner {
+        position: absolute;
+        width: clamp(40px, 10vw, 60px);
+        height: clamp(40px, 10vw, 60px);
+        border: 2px solid #e7cbb2;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      .corner-tl {
+        top: clamp(10px, 2vw, 15px);
+        left: clamp(10px, 2vw, 15px);
+        border-right: none;
+        border-bottom: none;
+        border-radius: 15px 0 0 0;
+      }
+      .corner-tr {
+        top: clamp(10px, 2vw, 15px);
+        right: clamp(10px, 2vw, 15px);
+        border-left: none;
+        border-bottom: none;
+        border-radius: 0 15px 0 0;
+      }
+      .corner-bl {
+        bottom: clamp(10px, 2vw, 15px);
+        left: clamp(10px, 2vw, 15px);
+        border-right: none;
+        border-top: none;
+        border-radius: 0 0 0 15px;
+      }
+      .corner-br {
+        bottom: clamp(10px, 2vw, 15px);
+        right: clamp(10px, 2vw, 15px);
+        border-left: none;
+        border-top: none;
+        border-radius: 0 0 15px 0;
+      }
+
+      .ribbon-seal {
+        position: absolute;
+        top: 45%;
+        right: max(-8px, -1.5vw);
+        transform: translateY(-50%);
+        width: clamp(25px, 6vw, 32px);
+        height: clamp(90px, 20vw, 110px);
+        background: #4f3629;
+        background: linear-gradient(145deg, #6b4c3b, #3d2b1f);
+        border: 3px solid #dbbc9b;
+        border-right: none;
+        border-radius: 25px 0 0 25px;
+        box-shadow: -5px 5px 12px #1f130f;
+        z-index: 10;
+      }
+
+      .ribbon-seal::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: clamp(14px, 3.5vw, 18px);
+        height: clamp(14px, 3.5vw, 18px);
+        background: #8b654e;
+        border: 3px solid #ca9f80;
+        border-radius: 50%;
+      }
+
+      .wax-seal {
+        position: absolute;
+        top: 45%;
+        right: max(15px, 4vw);
+        transform: translateY(-50%);
+        width: clamp(45px, 10vw, 55px);
+        height: clamp(45px, 10vw, 55px);
+        background: #f93104;
+        background: radial-gradient(circle at 35% 35%, #d95f44, #913a24);
+        border-radius: 50%;
+        box-shadow:
+          0 max(3px, 0.8vw) 0 #572e1f,
+          0 8px 15px #1c100b,
+          inset 0 -3px 6px #4f261b,
+          inset 0 4px 10px #ffb28d;
+        border: 3px solid #ebbc99;
+        cursor: pointer;
+        z-index: 20;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(1.3rem, 4vw, 1.6rem);
+        color: #f8d8b4;
+        animation: sealGlow 2s infinite;
+      }
+
+      .wax-seal::before {
+        content: "⚜️";
+        font-size: clamp(1.5rem, 5vw, 2rem);
+      }
+
+      .wax-seal::after {
+        content: "";
+        position: absolute;
+        width: clamp(55px, 12vw, 65px);
+        height: clamp(55px, 12vw, 65px);
+        border-radius: 50%;
+        animation: rotate 10s linear infinite;
+        opacity: 0.7;
+      }
+
+      .wax-seal:hover {
+        transform: translateY(-50%) scale(1.05);
+        box-shadow:
+          0 max(5px, 1vw) 0 #633828,
+          0 12px 20px #1a0e0a;
+      }
+
+      .wax-seal.unlocked {
+        opacity: 0.8;
+        animation: none;
+        cursor: pointer;
+      }
+
+      .wax-seal.unlocked::after {
+        opacity: 1;
+        animation: none;
+      }
+
+      @keyframes sealGlow {
+        0%,
+        100% {
+          box-shadow:
+            0 0 20px #b1432b,
+            0 max(3px, 0.8vw) 0 #572e1f,
+            0 8px 15px #1c100b;
+        }
+        50% {
+          box-shadow:
+            0 0 40px #d95f44,
+            0 0 60px #ffd700,
+            0 max(5px, 1vw) 0 #633828;
+        }
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .finger-container {
+        position: absolute;
+        top: 45%;
+        right: clamp(70px, 18vw, 85px);
+        transform: translateY(-50%);
+        z-index: 30;
+        pointer-events: none;
+      }
+
+      .finger-pointer {
+        font-size: clamp(2.5rem, 8vw, 3.8rem);
+        filter: drop-shadow(3px 8px 5px #2c1913);
+        animation: pointAtSeal 1.5s infinite;
+        line-height: 1;
+        text-shadow: 0 0 5px #fae1bf;
+        white-space: nowrap;
+        transform-origin: center;
+      }
+
+      .finger-text {
+        position: absolute;
+        top: -40px;
+        right: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 12px 25px;
+        border-radius: 40px;
+        font-size: clamp(1rem, 3vw, 1.3rem);
+        color: #8b4513;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        border: 3px solid #c49a6c;
+        font-weight: bold;
+        white-space: nowrap;
+        border-bottom: 5px solid #c49a6c;
+        animation: textPulse 2s infinite;
+        z-index: 101;
+        pointer-events: none;
+      }
+
+      .finger-text::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        right: 30%;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        border-left: 3px solid #c49a6c;
+        border-bottom: 3px solid #c49a6c;
+        transform: rotate(-45deg);
+      }
+
+      @keyframes pointAtSeal {
+        0% {
+          transform: translateX(0) rotate(-10deg);
+        }
+        50% {
+          transform: translateX(-6px) rotate(-5deg);
+        }
+      }
+
+      @keyframes textPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .secret-shortcut {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 100;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .secret-shortcut::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background: #ff3333;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #ff3333;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.3);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .secret-shortcut {
+          width: 40px;
+          height: 40px;
+          bottom: 15px;
+          left: 15px;
+        }
+        .secret-shortcut::before {
+          width: 12px;
+          height: 12px;
+        }
+      }
+
+      .story-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(43, 27, 21, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        overflow-y: auto;
+        padding: 2rem 1rem;
+      }
+
+      .story-menu.visible {
+        display: block;
+      }
+
+      .menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        color: #f7e6d4;
+        border-bottom: 2px solid #c49a6c;
+        padding-bottom: 1rem;
+      }
+
+      .menu-header h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        font-family: "Georgia", serif;
+        text-shadow: 2px 2px 0 #3b261e;
+      }
+
+      .close-menu {
+        background: #c49a6c;
+        border: none;
+        border-bottom: 4px solid #8b5d52;
+        color: white;
+        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+      }
+
+      .close-menu:hover {
+        transform: scale(1.1);
+        background: #dbb5a2;
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .menu-item {
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid #c49a6c;
+        border-radius: 20px;
+        padding: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        color: #f7e6d4;
+        backdrop-filter: blur(5px);
+      }
+
+      .menu-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.2);
+        border-color: #ffd700;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .menu-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: #ffd700;
+      }
+
+      .menu-item p {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        line-height: 1.4;
+      }
+
+      .menu-item .story-id {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.3rem 1rem;
+        background: #c49a6c;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        color: #2b1b15;
+      }
+
+      .random-btn {
+        background: #8f6753;
+        border: none;
+        border-bottom: 4px solid #543a2f;
+        padding: 1rem 2rem;
+        font-size: 1.3rem;
+        color: white;
+        border-radius: 50px;
+        cursor: pointer;
+        width: fit-content;
+        margin: 2rem auto;
+        display: block;
+        transition: all 0.3s;
+      }
+
+      .random-btn:hover {
+        transform: translateY(-2px);
+        background: #c49a6c;
+      }
+
+      .heart-cover {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(0.8rem, 2vh, 1.2rem);
+        background: #4f382bb8;
+        backdrop-filter: blur(4px);
+        border-radius: clamp(30px, 8vw, 40px) clamp(3px, 1vw, 5px)
+          clamp(30px, 8vw, 40px) clamp(3px, 1vw, 5px);
+        padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1.2rem, 4vw, 1.8rem);
+        border: 2px solid #edd0b8;
+        box-shadow: inset 0 0 30px #eacbb2;
+        position: relative;
+        z-index: 5;
+        width: 100%;
+        flex: 1;
+      }
+
+      .cover-title {
+        font-size: clamp(2rem, 8vw, 3.2rem);
+        font-family: "Times New Roman", serif;
+        font-weight: 800;
+        letter-spacing: clamp(2px, 1.5vw, 5px);
+        color: #f7e6d4;
+        text-shadow: clamp(2px, 0.8vw, 3px) clamp(2px, 0.8vw, 3px) 0 #3b261e;
+        border-bottom: 2px solid #f0cfb5;
+        border-top: 2px solid #f0cfb5;
+        padding: clamp(0.3rem, 2vw, 0.5rem) clamp(0.5rem, 3vw, 1rem);
+        text-align: center;
+        background: #4f382bb8;
+        width: 100%;
+        line-height: 1.2;
+      }
+
+      .cover-sub {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+        color: #faead9;
+        background: #4f382bb8;
+        padding: clamp(0.3rem, 1.5vw, 0.4rem) clamp(1rem, 4vw, 1.8rem);
+        border-radius: 50px 2px 50px 2px;
+        border: 2px solid #efcfb4;
+        font-style: italic;
+        letter-spacing: clamp(1px, 0.8vw, 2px);
+        text-align: center;
+      }
+
+      .sun-cover {
+        position: absolute;
+        top: 57%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: clamp(4rem, 20vw, 8rem);
+        z-index: 15;
+        pointer-events: none;
+        animation: sunGlow 4s infinite ease-in-out;
+        filter: drop-shadow(0 0 30px goldenrod);
+        opacity: 0.9;
+        text-shadow: 0 0 30px goldenrod;
+        transition: transform 0.3s ease;
+      }
+
+      .sun-cover.rotating {
+        animation: spin 3s ease-in-out !important;
+      }
+
+      @keyframes sunGlow {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          filter: drop-shadow(0 0 30px goldenrod);
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.1);
+          filter: drop-shadow(0 0 50px goldenrod);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg) scale(1);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg) scale(1);
+        }
+      }
+
+      .bubble-panel {
+        position: absolute;
+        top: max(20%, 100px);
+        right: clamp(70px, 15vw, 110px);
+        background: #fcf3e9;
+        background: linear-gradient(145deg, #fffaf2, #f5e2d2);
+        border: max(3px, 0.6vw) solid #a87d64;
+        border-radius: 40px 40px 40px 15px;
+        padding: clamp(1.2rem, 4vw, 1.8rem) clamp(1.2rem, 4vw, 1.8rem);
+        box-shadow:
+          0 15px 25px -8px #281a14,
+          inset 0 0 15px #e7c8b2,
+          0 0 0 3px #faeada;
+        z-index: 50;
+        width: min(260px, 70vw);
+        display: none;
+        backdrop-filter: blur(4px);
+      }
+
+      .bubble-panel.visible {
+        display: block;
+      }
+
+      .bubble-panel::after {
+        content: "";
+        position: absolute;
+        top: 25px;
+        right: -18px;
+        width: 0;
+        height: 0;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 22px solid #a87d64;
+        filter: drop-shadow(2px 3px 3px #3f2c22);
+      }
+
+      @media (max-width: 500px) {
+        .bubble-panel::after {
+          right: -12px;
+          border-left-width: 16px;
+          border-top-width: 8px;
+          border-bottom-width: 8px;
+        }
+      }
+
+      .bubble-label {
+        font-size: clamp(1.3rem, 5vw, 1.5rem);
+        text-align: center;
+        color: #3d261e;
+        margin-bottom: clamp(0.5rem, 2vh, 1rem);
+        font-family: "Georgia", serif;
+        border-bottom: 2px dotted #c79e84;
+        padding-bottom: 0.5rem;
+      }
+
+      .bubble-input {
+        width: 100%;
+        background: #fffbf7;
+        border: max(3px, 0.8vw) solid #b2886f;
+        padding: clamp(0.5rem, 2vw, 0.7rem) clamp(0.7rem, 3vw, 1rem);
+        font-size: clamp(1.1rem, 4vw, 1.3rem);
+        font-family: "Georgia", serif;
+        color: #2f1b14;
+        border-radius: 30px 3px 30px 3px;
+        outline: none;
+        text-align: center;
+        box-shadow: inset 0 3px 8px #ba927e;
+      }
+
+      .bubble-input::placeholder {
+        color: #b1846b;
+        font-style: italic;
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+      }
+
+      .bubble-btn {
+        background: #8f6753;
+        border: none;
+        border-bottom: max(4px, 1vw) solid #543a2f;
+        padding: clamp(0.5rem, 2vw, 0.7rem) clamp(1rem, 4vw, 1.5rem);
+        font-size: clamp(1.3rem, 5vw, 1.6rem);
+        color: white;
+        border-radius: 30px 2px 30px 2px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 1rem;
+        font-family: "Georgia", serif;
+        box-shadow: 0 max(4px, 1vw) 0 #3d2b22;
+        transition: 0.05s;
+      }
+
+      .bubble-btn:active {
+        transform: translateY(4px);
+        border-bottom-width: max(2px, 0.5vw);
+      }
+
+      .bubble-error {
+        color: #721e1e;
+        background: #ffe6da;
+        padding: 0.3rem;
+        border-radius: 20px;
+        margin-top: 0.8rem;
+        text-align: center;
+        border: 2px solid #b1462b;
+        visibility: hidden;
+        font-size: clamp(0.8rem, 3vw, 1rem);
+      }
+
+      .book-inside {
+        display: none;
+        width: min(520px, 95vw);
+        background: #e8d9cc;
+        border-radius: 20px 8px 8px 20px;
+        box-shadow:
+          0 30px 40px -10px #1f0f13,
+          0 0 0 max(2px, 0.5vw) #bc8f7a,
+          0 0 0 max(8px, 1.5vw) #1a100b,
+          inset 0 0 30px #ac8b7c;
+        padding: clamp(1.2rem, 4vw, 2rem) clamp(1rem, 3vw, 1.8rem);
+        border: 1px solid #b4846b;
+        aspect-ratio: 2 / 3;
+        flex-direction: column;
+        z-index: 10;
+      }
+
+      .page-love {
+        background: #fffcf2;
+        border-radius: 16px 2px 2px 16px;
+        padding: clamp(1.2rem, 3vw, 1.5rem) clamp(1.5rem, 4vw, 2rem);
+        box-shadow:
+          inset -4px 0 15px #b89a88,
+          0 10px 20px #1a100b;
+        border-left: clamp(6px, 2vw, 10px) solid #d8b59e;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .page-rose-left {
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        font-size: 2rem;
+        opacity: 0.3;
+        transform: translateY(-50%);
+        animation: sway 4s infinite ease-in-out;
+        color: #c45a3a;
+        pointer-events: none;
+      }
+
+      .page-rose-right {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        font-size: 2rem;
+        opacity: 0.3;
+        transform: translateY(-50%);
+        animation: sway 4s infinite ease-in-out reverse;
+        color: #c45a3a;
+        pointer-events: none;
+      }
+
+      .page-rose-top-left {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        font-size: 2rem;
+        opacity: 0.3;
+        transform: rotate(-15deg);
+        color: #c45a3a;
+        pointer-events: none;
+      }
+
+      .page-rose-top-right {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 2rem;
+        opacity: 0.3;
+        transform: rotate(15deg);
+        color: #c45a3a;
+        pointer-events: none;
+      }
+
+      .page-rose-bottom-left {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        font-size: 2rem;
+        opacity: 0.3;
+        transform: rotate(15deg);
+        color: #c45a3a;
+        pointer-events: none;
+      }
+
+      .page-rose-bottom-right {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        font-size: 2rem;
+        opacity: 0.3;
+        transform: rotate(-15deg);
+        color: #c45a3a;
+        pointer-events: none;
+      }
+
+      @keyframes sway {
+        0%,
+        100% {
+          transform: translateY(-50%) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-50%) rotate(10deg);
+        }
+      }
+
+      .story-love {
+        font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+        line-height: 1.5;
+        color: #311f1c;
+        flex: 1;
+        position: relative;
+        z-index: 5;
+        overflow-y: auto;
+        padding-right: 0.3rem;
+        scrollbar-width: thin;
+        scrollbar-color: #b89a88 #f0e0d0;
+      }
+
+      .story-love::-webkit-scrollbar {
+        width: 6px;
+      }
+      .story-love::-webkit-scrollbar-track {
+        background: #f0e0d0;
+        border-radius: 10px;
+      }
+      .story-love::-webkit-scrollbar-thumb {
+        background-color: #b89a88;
+        border-radius: 10px;
+      }
+
+      .lettrine-love {
+        font-size: clamp(2.8rem, 8vw, 3.5rem);
+        float: left;
+        margin-right: 0.4rem;
+        color: #a0314e;
+        border-right: 2px solid #c08276;
+        padding-right: 0.3rem;
+        background: #f8e2d8;
+        padding: 0 0.3rem 0 0.1rem;
+        border-radius: 60px 3px 3px 60px;
+        line-height: 0.8;
+      }
+
+      .nav-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.8rem;
+        border-top: 2px dashed #dbb5a2;
+        padding-top: 0.8rem;
+        gap: 0.5rem;
+        position: relative;
+        z-index: 5;
+        flex-shrink: 0;
+      }
+
+      .nav-footer::before {
+        content: "🌹";
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.2rem;
+        opacity: 0.5;
+        background: #fffcf2;
+        padding: 0 10px;
+      }
+
+      .btn-nav {
+        background: #e5c3b5;
+        border: none;
+        border-bottom: max(3px, 0.8vw) solid #885d51;
+        padding: clamp(0.4rem, 1.8vw, 0.6rem) clamp(1rem, 3.5vw, 1.5rem);
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        border-radius: 40px 5px 40px 5px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.3s;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        color: #2b1b15;
+        box-shadow:
+          0 5px 0 #6b4a3d,
+          0 8px 12px rgba(0, 0, 0, 0.3);
+        transform: translateY(0);
+      }
+
+      .btn-nav:hover:not(:disabled) {
+        background: #f5d5c5;
+        transform: translateY(-2px);
+        box-shadow:
+          0 7px 0 #6b4a3d,
+          0 10px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn-nav:active:not(:disabled) {
+        transform: translateY(3px);
+        border-bottom-width: max(2px, 0.4vw);
+        box-shadow:
+          0 2px 0 #6b4a3d,
+          0 5px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn-nav:disabled {
+        background: #d3c0b5;
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: translateY(2px);
+        border-bottom-width: max(2px, 0.4vw);
+        box-shadow: 0 2px 0 #6b4a3d;
+      }
+
+      .page-counter {
+        background: #eccbbe;
+        padding: clamp(0.3rem, 1.5vw, 0.4rem) clamp(1rem, 3vw, 1.5rem);
+        border-radius: 50px;
+        border: 2px solid #fff8e3;
+        font-size: clamp(0.9rem, 2.8vw, 1rem);
+        white-space: nowrap;
+        font-weight: 600;
+        color: #3b2a1f;
+        box-shadow: inset 0 2px 5px #dbb5a2;
+      }
+
+      .close-btn {
+        background: #dbb3a4;
+        border: none;
+        border-bottom: max(3px, 0.8vw) solid #8b5d52;
+        padding: clamp(0.4rem, 1.8vw, 0.6rem) clamp(1.2rem, 4vw, 1.8rem);
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        border-radius: 40px 5px 40px 5px;
+        margin: 0.5rem auto 0;
+        display: block;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: 600;
+        color: #2b1b15;
+        box-shadow:
+          0 5px 0 #6b4a3d,
+          0 8px 12px rgba(0, 0, 0, 0.3);
+        transform: translateY(0);
+      }
+
+      .close-btn:hover {
+        background: #f5cfc0;
+        transform: translateY(-2px);
+        box-shadow:
+          0 7px 0 #6b4a3d,
+          0 10px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .close-btn:active {
+        transform: translateY(3px);
+        border-bottom-width: max(2px, 0.4vw);
+        box-shadow:
+          0 2px 0 #6b4a3d,
+          0 5px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .swipe-hint {
+        display: none;
+        text-align: center;
+        margin-top: 8px;
+        color: #8b5d52;
+        font-size: 0.85rem;
+        animation: fadeInOut 2s infinite;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 4px 10px;
+        border-radius: 30px;
+        border: 2px dashed #c49a6c;
+      }
+
+      @media (max-width: 768px) {
+        .swipe-hint {
+          display: block;
+        }
+        .rose {
+          opacity: 0.2;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .finger-text {
+          font-size: 0.9rem;
+          padding: 8px 15px;
+          white-space: normal;
+          width: 150px;
+          text-align: center;
+        }
+        .finger-text::after {
+          right: 20%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rose-decoration">
+      <div class="rose rose-1">🌹</div>
+      <div class="rose rose-2">🌹</div>
+      <div class="rose rose-3">🌹</div>
+      <div class="rose rose-4">🌹</div>
+      <div class="rose rose-5">🌹</div>
+      <div class="rose rose-6">🌹</div>
+    </div>
+
+    <div class="petal petal-1">🌹</div>
+    <div class="petal petal-2">🌹</div>
+    <div class="petal petal-3">🌹</div>
+    <div class="petal petal-4">🌹</div>
+    <div class="petal petal-5">🌹</div>
+
+    <button
+      class="secret-shortcut"
+      id="secretShortcut"
+      title="Menu des histoires"
+    ></button>
+
+    <div id="storyMenu" class="story-menu">
+      <div class="menu-header">
+        <h2>📖 Choisis ton histoire</h2>
+        <button class="close-menu" id="closeMenu">✕</button>
+      </div>
+      <button class="random-btn" id="randomStoryBtn">
+        🎲 Histoire aléatoire
+      </button>
+      <div class="menu-grid" id="storyMenuGrid"></div>
+    </div>
+
+    <div id="coverLove" class="cover-love">
+      <div class="ornament-corner corner-tl"></div>
+      <div class="ornament-corner corner-tr"></div>
+      <div class="ornament-corner corner-bl"></div>
+      <div class="ornament-corner corner-br"></div>
+
+      <div class="ribbon-seal"></div>
+      <div class="wax-seal" id="waxSeal"></div>
+
+      <div class="finger-container" id="fingerContainer">
+        <div class="finger-pointer" id="pointingFinger">👉</div>
+        <div class="finger-text" id="fingerText">Brise le sceau 🌹</div>
+      </div>
+
+      <div class="sun-cover" id="sunCover">
+        <img src="image/sun.png" width="120rem" />
+      </div>
+
+      <div class="heart-cover">
+        <div class="cover-title">GRIMOIRE MAGIQUE</div>
+        <div class="cover-sub">CYCLE PARFAIT</div>
+      </div>
+
+      <div id="bubblePanel" class="bubble-panel">
+        <div class="bubble-label">🔐 SCEAU</div>
+        <input
+          type="text"
+          id="passwordLove"
+          class="bubble-input"
+          placeholder="prénom secret"
+          autocomplete="off"
+        />
+        <button class="bubble-btn" id="unlockLoveBtn">Ouvrir</button>
+        <div id="errorLoveMsg" class="bubble-error">💔 nom incorrect</div>
+      </div>
+    </div>
+
+    <div id="bookInside" class="book-inside">
+      <div class="page-love">
+        <div class="page-rose-top-left">🌹</div>
+        <div class="page-rose-top-right">🌹</div>
+        <div class="page-rose-left">🌹</div>
+        <div class="page-rose-right">🌹</div>
+
+        <div id="storyContent" class="story-love"></div>
+
+        <div class="page-rose-bottom-left">🌹</div>
+        <div class="page-rose-bottom-right">🌹</div>
+
+        <div class="nav-footer">
+          <button class="btn-nav" id="prevPageBtn" disabled>◀ Précédent</button>
+          <span class="page-counter" id="pageCounter">1 / 5</span>
+          <button class="btn-nav" id="nextPageBtn">Suivant ▶</button>
+        </div>
+        <button class="close-btn" id="closeBookBtn">✧ refermer ✧</button>
+        <div class="swipe-hint">👉 Glisse pour tourner les pages 🌹</div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const waxSeal = document.getElementById("waxSeal");
+        const sunCover = document.getElementById("sunCover");
+        const bubblePanel = document.getElementById("bubblePanel");
+        const pointingFinger = document.getElementById("pointingFinger");
+        const fingerContainer = document.getElementById("fingerContainer");
+        const fingerText = document.getElementById("fingerText");
+        const cover = document.getElementById("coverLove");
+        const inner = document.getElementById("bookInside");
+        const pwdField = document.getElementById("passwordLove");
+        const unlockBtn = document.getElementById("unlockLoveBtn");
+        const errorMsg = document.getElementById("errorLoveMsg");
+        const closeBtn = document.getElementById("closeBookBtn");
+        const secretShortcut = document.getElementById("secretShortcut");
+        const storyMenu = document.getElementById("storyMenu");
+        const closeMenu = document.getElementById("closeMenu");
+        const randomStoryBtn = document.getElementById("randomStoryBtn");
+        const storyMenuGrid = document.getElementById("storyMenuGrid");
+
+        const SECRET = "HASHMAP";
+        let isUnlocked = localStorage.getItem("bookUnlocked") === "true";
+        let openCount = parseInt(localStorage.getItem("openCount") || "0");
+
+        const storyLibrary = [
+          {
+            id: 1,
+            title: "🌹 Le Petit Prince et sa rose",
+            description:
+              "L'histoire touchante du Petit Prince et de sa fleur orgueilleuse, une leçon sur l'amour et la responsabilité.",
+            paragraphs: [
+              `<span class="lettrine-love">S</span>ur sa petite planète, appelée l'astéroïde B-612, le Petit Prince vivait seul. Il passait ses journées à nettoyer ses volcans et à arracher les mauvaises herbes, surtout les graines de baobabs qui pouvaient détruire sa planète.`,
+              "Un jour, une graine inconnue germa. Le Petit Prince sentit que cette plante serait différente des autres.",
+              "La plante poussa lentement. Elle ne voulait pas apparaître toute simple comme un coquelicot. Elle se préparait avec soin. Elle choisissait la couleur de ses pétales. Elle ajustait ses feuilles. Elle voulait être parfaite.",
+              `<span class="lettrine-love">E</span>nfin, un matin, elle s'ouvrit. C'était une fleur magnifique.`,
+              "La fleur était très belle, mais aussi très orgueilleuse.",
+              "Dès son réveil, elle commença à parler : « Ah ! Je me réveille à peine… Je suis encore toute décoiffée… »",
+              "Le Petit Prince l'admirait profondément. Il était émerveillé par sa beauté. Il l'arrosait avec soin. Il la protégeait sous un globe de verre la nuit. Il la mettait à l'abri du vent derrière un paravent.",
+              `<span class="lettrine-love">M</span>ais la fleur était exigeante. Elle se plaignait du vent, du froid, des courants d'air, des tigres (alors qu'il n'y avait pas de tigres sur la planète). Elle toussait parfois pour attirer l'attention.`,
+              "Le Petit Prince, encore jeune et naïf, prenait ses paroles au sérieux. Il ne comprenait pas que derrière ses caprices se cachait de l'amour.",
+              `<span class="lettrine-love">L</span>a fleur aimait le Petit Prince. Mais elle ne savait pas le montrer simplement. Elle était coquette, fière, parfois manipulatrice. Elle voulait être admirée.`,
+              "Le Petit Prince, blessé par ses paroles et fatigué de ses exigences, commença à douter. Il pensait : « Je n'aurais pas dû l'écouter… J'aurais dû la juger sur ses actes et non sur ses paroles. » Mais il était trop jeune pour comprendre cela.",
+              "Alors il décida de partir.",
+              `<span class="lettrine-love">L</span>e jour de son départ, il nettoya ses volcans une dernière fois. Il arracha les derniers baobabs. Il arrosa sa fleur.`,
+              "Au moment de la quitter, la fleur lui dit : « Adieu. — Je t'aime. » Mais elle ajouta fièrement : « Essaie d'être heureux. » Elle ne voulut pas pleurer devant lui.",
+              "Le Petit Prince fut surpris. Il comprit qu'elle l'aimait réellement. Mais il était déjà parti, emporté par une migration d'oiseaux sauvages.",
+              `<span class="lettrine-love">P</span>lus tard, sur la Terre, le Petit Prince découvrit un jardin rempli de milliers de roses. Il fut bouleversé. Il croyait que sa fleur était unique au monde. Il se sentit trahi.`,
+              "Mais c'est le renard qui lui apprit la vérité. Le renard lui expliqua que ce qui rend quelqu'un unique, ce n'est pas son apparence… c'est le temps qu'on a passé avec lui.",
+              "« Tu deviens responsable pour toujours de ce que tu as apprivoisé. »",
+              `<span class="lettrine-love">A</span>lors le Petit Prince comprit : sa rose était unique, non pas parce qu'elle était la seule, mais parce que c'était sa rose. C'est elle qu'il avait protégée. C'est elle qu'il avait arrosée. C'est elle qu'il avait écoutée. C'est pour elle qu'il était responsable.`,
+              "À la fin, le Petit Prince décide de retourner vers sa planète. Vers sa fleur.",
+              "Il comprend enfin qu'il l'aime. Il comprend aussi qu'elle l'aimait maladroitement.",
+              "Leur histoire n'est pas parfaite. Elle est fragile. Elle est humaine.",
+              "C'est une histoire d'amour faite d'orgueil, d'incompréhension, de distance… mais aussi de fidélité et de responsabilité.",
+            ],
+          },
+          {
+            id: 2,
+            title: "🌾 Soie – de Alessandro Baricco",
+            description:
+              "Le voyage d'Hervé Joncour au Japon et l'amour silencieux d'Hélène, une histoire sur le désir de l'ailleurs et la beauté de l'amour réel.",
+            paragraphs: [
+              `<span class="lettrine-love">I</span>l s'appelait Hervé Joncour. Ce n'était ni un homme courageux, ni un homme tourmenté. Il était simplement calme.`,
+              "Il vivait dans un petit village du sud de la France, un endroit où les saisons passaient doucement, où les gens parlaient peu, et où la soie faisait vivre les maisons.",
+              "Il était marié à Hélène. Hélène avait une voix douce. Une présence discrète. Elle aimait son mari sans bruit.",
+              "Ils n'avaient pas d'enfants, mais ils avaient une paix tranquille, presque fragile.",
+              `<span class="lettrine-love">C</span>haque année, Hervé partait loin acheter des œufs de vers à soie. C'était un voyage long, mais ordinaire. Jusqu'au jour où la maladie frappa l'Europe. Les vers mouraient. La soie disparaissait. Alors on lui demanda d'aller plus loin. Beaucoup plus loin.`,
+              `<span class="lettrine-love">I</span>l traversa l'Europe. Puis la Russie. Puis la Sibérie. Puis la mer. Des semaines de train. Des plaines blanches infinies. Des silences. Il arriva enfin au Japon, un pays encore presque fermé au monde.`,
+              "Là-bas, dans un village isolé, il rencontra un homme puissant et silencieux : Hara Kei. Et près de lui… Il la vit.",
+              `<span class="lettrine-love">E</span>lle ne parlait pas. Elle était assise près de Hara Kei comme une ombre paisible. Son visage était lisse. Ses gestes rares. Mais ses yeux… Ses yeux n'étaient pas comme ceux des autres. Ils étaient clairs. Profonds. Presque étrangers.`,
+              "Elle regarda Hervé. Longtemps. Sans sourire. Sans émotion visible. Et pourtant… quelque chose passa entre eux. Pas un mot. Pas un geste. Seulement un regard.",
+              `<span class="lettrine-love">H</span>ervé rentra en France. Il retrouva Hélène. Sa maison. Le jardin. Tout était à sa place. Mais quelque chose en lui était resté au Japon. Il pensait à ce regard. Pas comme à une passion. Plutôt comme à une question restée sans réponse.`,
+              "L'année suivante, il repartit. Et il la revit. Toujours silencieuse. Toujours inaccessible.",
+              `<span class="lettrine-love">U</span>n jour, en quittant la maison de Hara Kei, il sentit quelque chose glissé dans sa main. Un petit papier. Il ne l'ouvrit qu'en France. Il le fit traduire. Les mots disaient, simplement, une invitation à revenir. Une promesse. Un appel. Ces mots l'embrasèrent plus que mille gestes.`,
+              `<span class="lettrine-love">I</span>l repartit encore. Mais le Japon changeait. La guerre grondait. Le village était vide. La maison détruite. Hara Kei avait disparu. Elle aussi. Comme si elle n'avait jamais existé. Hervé rentra une dernière fois. Et il ne repartit plus.`,
+              `<span class="lettrine-love">L</span>es années passèrent. Hélène vieillissait doucement. Toujours présente. Toujours douce. Hervé ne parlait jamais du Japon. Il gardait ce souvenir comme une musique lointaine.`,
+              "Puis un jour, Hélène mourut. Et après sa mort, Hervé découvrit quelque chose qui bouleversa tout. La lettre japonaise. Ce n'était pas elle qui l'avait écrite. C'était Hélène.",
+              `<span class="lettrine-love">E</span>lle avait compris. Elle avait vu ce silence en lui. Elle avait compris qu'il cherchait quelque chose d'indéfinissable. Alors elle lui avait offert un rêve. Elle lui avait donné l'illusion d'un amour mystérieux, pour combler le vide qu'il ne savait pas nommer. Elle l'avait aimé d'un amour si profond qu'elle avait accepté d'être invisible.`,
+              `<span class="lettrine-love">C</span>e n'est pas une histoire de passion. C'est une histoire sur le désir de l'ailleurs, le mystère qui nous attire, l'illusion que l'inaccessible est plus intense, et la beauté silencieuse de l'amour réel.`,
+              "La femme japonaise était un mirage. Une projection. Un vertige. Hélène était la vérité. Mais la vérité ne brille pas toujours comme le rêve.",
+            ],
+          },
+          {
+            id: 3,
+            title: "🌿 Le Prophète – de Kahlil Gibran",
+            description:
+              "Les paroles du Prophète sur l'amour véritable : une invitation à aimer sans posséder, à laisser un espace entre les cœurs.",
+            paragraphs: [
+              `<span class="lettrine-love">L</span>a mer était calme ce matin-là. Les voiles d'un navire flottaient comme des rêves au-dessus de l'eau argentée. La ville entière s'était rassemblée sur le port, silencieuse.`,
+              "Ils attendaient l'homme qui allait partir, celui qu'ils appelaient le Prophète. On disait qu'il savait des choses sur la vie, sur le cœur, sur les secrets que chacun porte au fond de soi.",
+              `<span class="lettrine-love">A</span>vant de monter sur le navire, on lui demanda de parler une dernière fois. Et la question vint naturellement, douce et insistante : « Parle-nous de l'amour. »`,
+              "Le Prophète regarda la foule, et ses yeux semblaient regarder plus loin que la mer, plus loin que le ciel.",
+              `<span class="lettrine-love">« Q</span>uand l'amour vous appelle, suivez-le, même si ses chemins sont abrupts et sombres. L'amour vous élève et vous fait briller, mais il peut aussi vous briser et vous mettre à nu. Il n'est pas là pour vous protéger, mais pour vous transformer.`,
+              "L'amour ne possède pas et ne veut pas être possédé. Deux cœurs ne doivent pas se fondre au point de perdre leur souffle et leur liberté. Laissez un espace entre vous, pour que les vents du ciel puissent danser entre vous.",
+              "Aimez, mais ne faites pas de l'amour une chaîne. Remplissez la coupe de l'autre, mais ne buvez pas dans la même coupe. Soyez ensemble, mais gardez votre propre lumière.",
+              "L'amour donne, mais il exige. Il est la douceur et la douleur, la joie et les larmes. Il est le feu qui forge votre âme, et parfois il vous consume pour que vous renaissiez plus vaste, plus profond.",
+              "Si vous aimez pour ne recevoir que paix ou plaisir, vous ne saurez jamais ce qu'est l'amour véritable. Car l'amour véritable est une force qui vous traverse, qui vous change et vous élève, même lorsque vous souffrez. »",
+              `<span class="lettrine-love">L</span>e Prophète fit une pause. Il regarda chaque visage dans la foule. Il savait que beaucoup pleuraient silencieusement, que certains tremblaient d'émotion, et que d'autres n'avaient jamais ressenti ce vertige qu'est l'amour vrai.`,
+              "Puis il reprit, comme une caresse :",
+              "« L'amour est votre lumière et votre ombre. Il vous rend vulnérable, et c'est dans cette vulnérabilité que vous trouvez votre force. Il ne se mesure pas, ne se possède pas, ne s'attrape pas. Il est libre, et il rend libre celui qui le reçoit et celui qui le donne. »",
+              `<span class="lettrine-love">L</span>a foule resta silencieuse. Le vent s'était levé, jouant avec les voiles du navire. Et le Prophète monta sur le pont, prêt à partir vers d'autres rivages.`,
+              "Mais chacun gardait au cœur ce qu'il venait de dire. Ce simple murmure : l'amour est à la fois doux et cruel, fragile et immense, impossible à posséder et pourtant essentiel à vivre.",
+              `<span class="lettrine-love">A</span>lors que le navire s'éloignait, la mer reflétait les visages levés vers le ciel. Les habitants comprirent que l'amour n'était pas seulement un sentiment : c'était une vérité, un souffle, une lumière invisible qui traverse la vie entière.`,
+              "Et cette lumière continue de briller, même lorsque l'on croit que tout est perdu.",
+            ],
+          },
+          {
+            id: 4,
+            title: "🦊 Le Petit Prince et le renard",
+            description:
+              "La rencontre inoubliable du Petit Prince et du renard, et l'apprentissage de l'apprivoisement et des liens du cœur.",
+            paragraphs: [
+              `<span class="lettrine-love">A</span>près avoir quitté sa petite planète et voyagé de monde en monde, le Petit Prince arrive sur la Terre. Il se sent seul. Il a vu des rois, des vaniteux, des buveurs, des hommes d'affaires… mais personne qui comprenne vraiment le cœur.`,
+              `<span class="lettrine-love">U</span>n jour, dans un champ de blé doré, il rencontre un renard.`,
+              "— « Bonjour », dit le renard.",
+              "— « Bonjour », répondit poliment le Petit Prince, qui se retourna mais ne vit rien.",
+              "— « Je suis là », dit la voix, « sous le pommier… »",
+              "Le Petit Prince aperçut alors le renard.",
+              "— « Viens jouer avec moi », lui proposa-t-il. « Je suis tellement triste… »",
+              "— « Je ne peux pas jouer avec toi », dit le renard. « Je ne suis pas apprivoisé. »",
+              "— « Ah ! pardon », fit le Petit Prince. Après un moment de réflexion, il demanda : — « Qu'est-ce que signifie “apprivoiser” ? »",
+              "— « C'est une chose trop oubliée », dit le renard. « Ça signifie créer des liens… »",
+              "Le renard expliqua que, pour lui, le Petit Prince n'était qu'un petit garçon semblable à cent mille autres. Et lui-même n'était qu'un renard semblable à cent mille renards. Mais s'ils s'apprivoisaient, ils deviendraient uniques l'un pour l'autre. Ils auraient besoin l'un de l'autre.",
+              "Le Petit Prince pensa à sa rose. Il dit qu'il croyait qu'elle l'avait apprivoisé.",
+              `<span class="lettrine-love">L</span>e renard demanda au Petit Prince d'être patient. Il devait s'asseoir d'abord un peu loin de lui, dans l'herbe. Chaque jour, il pourrait s'asseoir un peu plus près. Il ne fallait pas parler : le langage est source de malentendus. Mais il devait venir à la même heure.`,
+              "— « Si tu viens, par exemple, à quatre heures de l'après-midi, dès trois heures je commencerai d'être heureux. Plus l'heure avancera, plus je me sentirai heureux. Mais si tu viens n'importe quand, je ne saurai jamais à quelle heure m'habiller le cœur… Il faut des rites. »",
+              "Ainsi, peu à peu, le Petit Prince apprivoisa le renard.",
+              "Puis vint le moment du départ.",
+              "— « Ah ! » dit le renard… « Je pleurerai. »",
+              "— « C'est ta faute », dit le Petit Prince. « Je ne te souhaitais point de mal, mais tu as voulu que je t'apprivoise… »",
+              "— « Bien sûr », dit le renard.",
+              "— « Mais tu vas pleurer ! »",
+              "— « Bien sûr », dit le renard.",
+              "— « Alors tu n'y gagnes rien ! »",
+              "— « J'y gagne », dit le renard, « à cause de la couleur du blé. »",
+              "Il expliqua que le blé, qui auparavant ne signifiait rien pour lui, lui rappellerait désormais les cheveux dorés du Petit Prince.",
+              `<span class="lettrine-love">A</span>vant de se quitter, le renard dit :`,
+              "— « Adieu. Voici mon secret. Il est très simple : On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux. »",
+              "Le Petit Prince répéta pour ne pas oublier : — « L'essentiel est invisible pour les yeux. »",
+              "Le renard ajouta : — « C'est le temps que tu as perdu pour ta rose qui fait ta rose si importante. »",
+              "Et encore : — « Tu deviens responsable pour toujours de ce que tu as apprivoisé. Tu es responsable de ta rose… »",
+              "Le Petit Prince répéta : — « Je suis responsable de ma rose… »",
+              "Et il reprit sa route, comprenant désormais que l'amour crée des liens invisibles mais éternels.",
+            ],
+          },
+          {
+            id: 5,
+            title: "🌳 Le Voyageur et l'Arbre à Souvenirs",
+            description:
+              "Un voyageur infatigable apprend d'un arbre que la perfection se trouve dans la capacité à regarder chaque jour la même fleur.",
+            paragraphs: [
+              `<span class="lettrine-love">I</span>l était une fois un voyageur qui possédait des bottes de sept lieues et un cœur beaucoup trop grand pour sa poitrine. Depuis son plus jeune âge, il était habité par une étrange mélancolie : la sensation que le bonheur se trouvait toujours juste après la prochaine colline, ou sur une étoile qu'il n'avait pas encore visitée.`,
+              "Il passa des années à courir. Il traversa des déserts de sable bleu, gravit des montagnes de cristal et navigua sur des mers de nuages. À chaque fois qu'il arrivait quelque part, il s'émerveillait un instant, puis soupirait : « C'est beau, mais ce n'est pas encore l'endroit où mon cœur veut s'arrêter. » Il repartait, toujours plus vite, fuyant le silence.",
+              `<span class="lettrine-love">U</span>n soir de février, alors que le vent soufflait une brise glacée, il se sentit soudain épuisé. Ses jambes étaient lourdes et ses bottes usées. Il s'arrêta dans une vallée qu'il connaissait pourtant par cœur : il y était né, il y avait grandi. Là, au milieu d'un champ, se dressait un arbre. Un arbre qu'il avait ignoré mille fois en partant pour ses grandes expéditions.`,
+              "Il s'assit contre son tronc noueux et, pour la première fois, il ne regarda pas l'horizon. Il regarda l'arbre.",
+              "— « Dis-moi, l'arbre, » murmura-t-il, « n'es-tu pas fatigué de voir toujours le même ciel ? N'as-tu pas l'impression d'être prisonnier de la terre, tandis que moi je parcours l'univers ? »",
+              "L'arbre resta silencieux un long moment, laissant le vent jouer dans ses branches dégarnies par l'hiver. Puis, une voix profonde, qui semblait monter des profondeurs du sol, résonna dans l'air :",
+              "— « Tu crois que je suis immobile, voyageur, mais je voyage plus que toi. Mes racines descendent si bas qu'elles touchent le cœur brûlant de la terre. Mes branches montent si haut qu'elles caressent les rêves des oiseaux de passage. Toi, tu cours après le monde, mais moi, je le laisse venir à moi. »",
+              "Le voyageur fronça les sourcils. L'arbre continua :",
+              "— « Tu cherches la perfection dans la nouveauté. Mais la perfection ne se trouve pas dans un nouveau paysage. Elle se trouve dans la capacité à regarder la même fleur chaque matin et à y découvrir une nuance de couleur que tu n'avais pas vue la veille. Être enraciné, ce n'est pas être prisonnier. C'est avoir trouvé le seul endroit au monde où l'on n'a plus besoin de fuir. »",
+              "Le voyageur posa sa main sur l'écorce. Il sentit la vie vibrer à l'intérieur. Il comprit alors que pendant toutes ces années, il n'avait rien vu. Il cherchait l'exceptionnel alors qu'il avait l'essentiel devant lui. Il comprit que l'amour, ce n'est pas trouver quelqu'un avec qui parcourir le monde, c'est trouver quelqu'un qui devient, à lui seul, notre monde entier.",
+              "Doucement, le voyageur retira ses bottes de sept lieues et les laissa au pied du tronc. Il ferma les yeux, respira l'odeur de la terre et de la sève, et pour la première fois de sa vie, il se sentit enfin arrivé.",
+            ],
+          },
+          {
+            id: 6,
+            title: "💡 Le Phare et la Luciole",
+            description:
+              "Un phare solitaire découvre qu'une petite luciole peut illuminer sa vie plus que tous les navires du monde.",
+            paragraphs: [
+              `<span class="lettrine-love">I</span>l était une fois, sur une falaise battue par les vents, un phare immense construit de pierres froides et de fer forgé. Sa mission était noble, mais solitaire : chaque nuit, il lançait son immense faisceau de lumière vers l'océan pour guider des navires pressés. Les marins le remerciaient de loin, mais personne ne restait jamais. Le phare pensait que sa lumière ne servait qu'à dire « Passez votre chemin » ou « Prenez garde ». Il se sentait utile, mais terriblement seul dans l'immensité du noir.`,
+              `<span class="lettrine-love">U</span>ne nuit d'orage, alors que le vent hurlait, une petite chose fragile vint s'écraser contre la vitre de sa lanterne. Ce n'était pas un oiseau, ni un débris de mer. C'était une luciole.`,
+              "Elle était minuscule, épuisée, et sa propre petite lumière vacillait, presque éteinte par la pluie. Le phare, habitué à éclairer des kilomètres d'horizon, fut surpris par cette présence si proche. Pour la première fois, il ne regardait pas au loin. Il regardait juste là, contre son verre.",
+              "— « Petite folle, » murmura le phare (car les phares parlent au vent). « Pourquoi es-tu venue ici ? Je n'éclaire que les géants des mers. Ma lumière est bien trop forte pour toi, elle va t'aveugler. »",
+              "La luciole, reprenant ses forces à la chaleur de la vitre, répondit d'une voix si fine qu'on aurait dit un froissement de soie :",
+              "— « Les bateaux te cherchent pour savoir où ils vont. Moi, je t'ai cherché pour savoir où je suis. Je ne veux pas que tu me montres la route, je veux juste rester près de ta chaleur. »",
+              "Le phare fut bouleversé. Lui qui croyait que sa lumière n'était qu'un outil de navigation comprit qu'elle pouvait aussi être un foyer. Cette nuit-là, il ne se contenta pas de balayer l'horizon. Il resta immobile, protégeant de sa structure massive la petite lueur qui s'était posée sur lui.",
+              "Il comprit une vérité que les marins ignoraient : on peut éclairer le monde entier et être dans l'obscurité, tant qu'on n'a pas une petite lumière à chérir tout contre soi.",
+            ],
+          },
+          {
+            id: 7,
+            title: "⚔️ Le chevalier au destin scellé (Tristan et Iseut)",
+            description:
+              "L'immortelle légende de Tristan et Iseut, un amour plus fort que la mort, scellé par un philtre magique.",
+            paragraphs: [
+              `<span class="lettrine-love">T</span>ristan n'était pas un homme ordinaire. Orphelin très jeune, élevé loin de son royaume, il grandit pour devenir un chevalier incomparable — courageux, noble, loyal jusqu'au sacrifice.`,
+              "Pour protéger la Cornouailles, il affronte le géant Morholt. Le combat est terrible. Il le tue… mais la lance ennemie était empoisonnée.",
+              "La blessure le consume. On l'abandonne sur une barque, livré à la mer.",
+              `<span class="lettrine-love">L</span>e destin le porte en Irlande. Là-bas, une jeune femme aux cheveux d'or le soigne sans savoir qu'il est celui qui a tué son parent. Elle s'appelle Iseut.`,
+              "Leurs regards se croisent. Il y a déjà une tension invisible. Une reconnaissance. Mais rien n'est encore interdit.",
+              "Tristan repart, guéri.",
+              `<span class="lettrine-love">L</span>e roi Marc, son oncle, décide d'épouser Iseut pour sceller la paix. Et il envoie Tristan la chercher. Ironie cruelle : c'est lui qui doit conduire vers un autre la femme qui l'a sauvé.`,
+              "Iseut accepte le mariage. Mais sa mère, inquiète, prépare un philtre d'amour destiné à unir pour toujours la princesse et son futur époux. Un breuvage puissant. Irrésistible.",
+              "Sur le navire, sous un soleil brûlant, Tristan et Iseut ont soif. Ils trouvent une fiole. Ils boivent.",
+              `<span class="lettrine-love">L</span>e monde change. Le vent devient plus lourd. Le silence plus intense. Leurs yeux se cherchent. Se comprennent.`,
+              "Ce n'est pas un choix. Ce n'est pas un caprice. C'est une force qui les traverse. Un amour absolu. Violent. Inévitable.",
+              "Ils comprennent l'horreur de leur situation. Elle est promise au roi. Il est son neveu. Son plus fidèle chevalier. Mais il est trop tard.",
+              `<span class="lettrine-love">I</span>seut épouse le roi Marc. Tristan reste à la cour. Chaque regard est un supplice. Chaque rencontre secrète est un risque de mort.`,
+              "Les barons jaloux espionnent. Les pièges se multiplient. Une nuit, ils sont découverts.",
+              "Condamnés au bûcher. Mais Tristan se libère, enlève Iseut et s'enfuit dans la forêt du Morois.",
+              "Là, loin des lois et des regards, ils vivent comme des fugitifs. Ils dorment sous les arbres. Ils survivent de chasse et de silence. Leur amour est intense — mais jamais paisible. Car ils savent qu'ils trahissent un roi qui, malgré tout, les aime.",
+              `<span class="lettrine-love">A</span>vec le temps, le philtre s'affaiblit. Le devoir revient comme une ombre.`,
+              "Tristan décide de partir. Non parce qu'il aime moins. Mais parce qu'il aime trop.",
+              "Il quitte Iseut pour la protéger. Il erre. Combat. Oublie de vivre. Il épouse une autre femme — Iseut aux Blanches Mains. Mais son cœur reste ailleurs. Toujours.",
+              `<span class="lettrine-love">U</span>n jour, Tristan est frappé d'une blessure mortelle. Il sait qu'une seule personne peut le sauver : Iseut la Blonde.`,
+              "Il envoie un navire. Un signal est convenu : voiles blanches si elle vient, voiles noires si elle refuse.",
+              "Les jours passent. La mer est vide. Enfin, au loin, une voile apparaît. Blanche.",
+              "Mais son épouse, jalouse, ment. Elle lui dit : — « Les voiles sont noires. »",
+              "Alors Tristan ferme les yeux. Il murmure le nom d'Iseut. Et il meurt.",
+              "Quelques instants plus tard, Iseut arrive. Trop tard. Elle se couche près de lui, serre son corps froid contre le sien. Et son cœur cesse de battre.",
+              `<span class="lettrine-love">O</span>n les enterre côte à côte. Mais la terre refuse la séparation.`,
+              "Une vigne pousse sur la tombe d'Iseut. Un aubépine sur celle de Tristan. Les branches s'étendent, se cherchent, s'enlacent au-dessus des tombes.",
+              "On les coupe. Elles repoussent. Encore. Et encore.",
+              "Comme si la nature elle-même proclamait : On peut condamner un amour. On peut le traquer. On peut le tuer. Mais on ne peut pas l'empêcher de grandir.",
+            ],
+          },
+        ];
+
+        const PARAGRAPHS_PER_PAGE = 3;
+
+        function distributeToPages(paragraphs) {
+          const pages = [];
+          for (let i = 0; i < paragraphs.length; i += PARAGRAPHS_PER_PAGE) {
+            pages.push({
+              paragraphs: paragraphs.slice(i, i + PARAGRAPHS_PER_PAGE),
+            });
+          }
+          return pages;
+        }
+
+        const storiesWithPages = storyLibrary.map((story) => {
+          return {
+            ...story,
+            pages: distributeToPages(story.paragraphs),
+          };
+        });
+
+        function getRandomStory() {
+          const randomIndex = Math.floor(
+            Math.random() * storiesWithPages.length,
+          );
+          return { ...storiesWithPages[randomIndex] };
+        }
+
+        function loadStory(story) {
+          currentStory = { ...story };
+          currentPageIndex = 0;
+
+          cover.style.display = "none";
+          inner.style.display = "flex";
+
+          storyMenu.classList.remove("visible");
+
+          renderPage();
+        }
+
+        let currentStory = null;
+        let currentPageIndex = 0;
+        let touchStartX = 0;
+
+        const contentDiv = document.getElementById("storyContent");
+        const prevBtn = document.getElementById("prevPageBtn");
+        const nextBtn = document.getElementById("nextPageBtn");
+        const pageCounter = document.getElementById("pageCounter");
+
+        function renderPage() {
+          if (!currentStory) return;
+
+          const page = currentStory.pages[currentPageIndex];
+          let html = `<h2 style="text-align:center; color:#a0314e; margin-bottom:0.8rem; border-bottom:2px solid #c08276; padding-bottom:0.3rem; font-family:'Georgia', serif; font-size:clamp(1.1rem, 3.5vw, 1.4rem);">${currentStory.title}</h2>`;
+
+          page.paragraphs.forEach((p) => {
+            html += `<p style="margin-bottom:0.8rem; text-align:justify;">${p}</p>`;
+          });
+
+          html += `<div style="margin-top:0.5rem; font-style:italic; color:#8b5d52; text-align:center; font-size:0.85rem; border-top:1px dashed #dbb5a2; padding-top:0.5rem;">Page ${currentPageIndex + 1} / ${currentStory.pages.length}</div>`;
+
+          contentDiv.innerHTML = html;
+          pageCounter.textContent = `${currentPageIndex + 1} / ${currentStory.pages.length}`;
+          prevBtn.disabled = currentPageIndex === 0;
+          nextBtn.disabled = currentPageIndex === currentStory.pages.length - 1;
+        }
+
+        function openBookDirectly() {
+          currentStory = getRandomStory();
+          currentPageIndex = 0;
+
+          cover.style.display = "none";
+          inner.style.display = "flex";
+
+          renderPage();
+        }
+
+        function updateFingerVisibility() {
+          if (openCount >= 2) {
+            pointingFinger.style.display = "none";
+            fingerText.style.display = "none";
+          } else {
+            pointingFinger.style.display = "block";
+            fingerText.style.display = "block";
+          }
+        }
+
+        if (isUnlocked) {
+          fingerText.textContent = "Appuyer pour ouvrir le livre 📖";
+          waxSeal.classList.add("unlocked");
+        }
+
+        updateFingerVisibility();
+
+        waxSeal.addEventListener("click", () => {
+          if (isUnlocked) {
+            sunCover.classList.add("rotating");
+            setTimeout(() => {
+              sunCover.classList.remove("rotating");
+              openCount++;
+              localStorage.setItem("openCount", openCount.toString());
+              updateFingerVisibility();
+              openBookDirectly();
+            }, 3000);
+          } else {
+            bubblePanel.classList.add("visible");
+            pointingFinger.style.display = "none";
+            fingerText.style.display = "none";
+            waxSeal.style.opacity = "0.8";
+          }
+        });
+
+        function unlockBook() {
+          const entered = pwdField.value.trim().toUpperCase();
+          if (entered === SECRET) {
+            sunCover.classList.add("rotating");
+            setTimeout(() => {
+              sunCover.classList.remove("rotating");
+              isUnlocked = true;
+              localStorage.setItem("bookUnlocked", "true");
+
+              openCount++;
+              localStorage.setItem("openCount", openCount.toString());
+
+              waxSeal.classList.add("unlocked");
+              fingerText.textContent = "Appuyer pour ouvrir le livre 📖";
+
+              currentStory = getRandomStory();
+              currentPageIndex = 0;
+
+              cover.style.display = "none";
+              inner.style.display = "flex";
+              errorMsg.style.visibility = "hidden";
+
+              bubblePanel.classList.remove("visible");
+
+              pointingFinger.style.display = "none";
+              fingerText.style.display = "none";
+
+              renderPage();
+            }, 3000);
+          } else {
+            errorMsg.style.visibility = "visible";
+          }
+        }
+
+        unlockBtn.addEventListener("click", unlockBook);
+        pwdField.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") unlockBook();
+        });
+
+        closeBtn.addEventListener("click", () => {
+          inner.style.display = "none";
+          cover.style.display = "flex";
+          pwdField.value = "";
+          errorMsg.style.visibility = "hidden";
+          bubblePanel.classList.remove("visible");
+
+          updateFingerVisibility();
+
+          if (isUnlocked) {
+            pointingFinger.style.display = openCount >= 2 ? "none" : "block";
+            fingerText.style.display = openCount >= 2 ? "none" : "block";
+            fingerText.textContent = "Appuyer pour ouvrir le livre 📖";
+            waxSeal.style.opacity = "1";
+          } else {
+            pointingFinger.style.display = openCount >= 2 ? "none" : "block";
+            fingerText.style.display = openCount >= 2 ? "none" : "block";
+            fingerText.textContent = "Brise le sceau 🌹";
+            waxSeal.style.opacity = "1";
+          }
+        });
+
+        prevBtn.addEventListener("click", () => {
+          if (currentPageIndex > 0) {
+            currentPageIndex--;
+            renderPage();
+          }
+        });
+
+        nextBtn.addEventListener("click", () => {
+          if (currentPageIndex < currentStory.pages.length - 1) {
+            currentPageIndex++;
+            renderPage();
+          }
+        });
+
+        inner.addEventListener(
+          "touchstart",
+          (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+          },
+          false,
+        );
+
+        inner.addEventListener(
+          "touchend",
+          (e) => {
+            if (inner.style.display !== "flex" || !currentStory) return;
+
+            const touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > 50) {
+              if (
+                diff > 0 &&
+                currentPageIndex < currentStory.pages.length - 1
+              ) {
+                currentPageIndex++;
+                renderPage();
+              } else if (diff < 0 && currentPageIndex > 0) {
+                currentPageIndex--;
+                renderPage();
+              }
+            }
+          },
+          false,
+        );
+
+        window.addEventListener("keydown", (e) => {
+          if (inner.style.display !== "flex" || !currentStory) return;
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            if (currentPageIndex > 0) {
+              currentPageIndex--;
+              renderPage();
+            }
+          } else if (e.key === "ArrowRight") {
+            e.preventDefault();
+            if (currentPageIndex < currentStory.pages.length - 1) {
+              currentPageIndex++;
+              renderPage();
+            }
+          }
+        });
+
+        function showStoryMenu() {
+          storyMenu.classList.add("visible");
+
+          if (inner.style.display === "flex") {
+            inner.style.display = "none";
+            cover.style.display = "flex";
+          }
+        }
+
+        secretShortcut.addEventListener("click", showStoryMenu);
+
+        closeMenu.addEventListener("click", () => {
+          storyMenu.classList.remove("visible");
+        });
+
+        randomStoryBtn.addEventListener("click", () => {
+          const randomStory = getRandomStory();
+          loadStory(randomStory);
+        });
+
+        function generateStoryMenu() {
+          storyMenuGrid.innerHTML = "";
+
+          storiesWithPages.forEach((story) => {
+            const menuItem = document.createElement("div");
+            menuItem.className = "menu-item";
+            menuItem.innerHTML = `
+                        <h3>${story.title}</h3>
+                        <p>${story.description}</p>
+                        <span class="story-id">${story.pages.length} pages</span>
+                    `;
+
+            menuItem.addEventListener("click", () => {
+              loadStory(story);
+            });
+
+            storyMenuGrid.appendChild(menuItem);
+          });
+        }
+
+        generateStoryMenu();
+
+        if (isUnlocked) {
+          waxSeal.classList.add("unlocked");
+          fingerText.textContent = "Appuyer pour ouvrir le livre 📖";
+        }
+      })();
+    </script>
+  </body>
+</html>
